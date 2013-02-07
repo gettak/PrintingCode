@@ -1,3 +1,6 @@
+//exports as PDF
+//This version scales the ice cream design in proportion to the art boarder.
+
 import processing.pdf.*;
 
 float print_width = 8.5; //Change this to customize art boarder width.
