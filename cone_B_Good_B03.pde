@@ -1,6 +1,6 @@
 import processing.pdf.*;
 
-float print_width = 8.5;
+float print_width = 4.5;
 float print_height = 11;
 float make_bigger = 75;
 
@@ -13,7 +13,7 @@ int w, h, a;
 
 void setup()
 {
-  size(round(print_width * make_bigger), round(print_height * make_bigger), OPENGL);
+  size(round(print_width * make_bigger), round(print_height * make_bigger));
   background(255);
   beginRecord(PDF, "cone.pdf");
 
@@ -22,47 +22,18 @@ void setup()
   int triPointH = round((print_height* make_bigger) / divHeight);
   int degreeCount = 0;
 
-  //stroke(0);
-  //strokeWeight(1);
-  
-  pushMatrix();
-  translate (width/2, height/5);
-  rotate(PI/4);
-
-  for (int i=30; i>0; i--) {
-    for (int j=30; j>0; j--) {
-      if (j==1 && i==1) {
-        rotate(-PI/4);
-        w = 0;
-        h = 435;
-        a = 650;
-        fill(0);
-        noStroke();
-        ellipse(0, triPointW, triPointW*2, triPointH-50);
-        rectMode(CENTER);
-      }
-      
-      else {
-        
-
-        w = 10;
-        h = 10;
-        a = 10;
-        rectMode(CENTER);
-        stroke(0);
-        strokeWeight(1);
-        noFill();
-      }
-      rect(i*w, j*h, a, a);
-    }
-  }
-  popMatrix();
+  fill(0);
+  //noStroke();
+  strokeJoin(ROUND);
+  ellipseMode(CORNER);
+  ellipse(triPointW*2, triPointH - triPointW, triPointW*2, triPointW*2.2);
+  rect(0, triPointH, width, height);
 
   fill(255);
+  stroke(255);
+  strokeWeight(3);
   triangle(triPointW*2, triPointH*1, triPointW*4, triPointH*1, triPointW*3, triPointH*2);
-
-
-
+  
   endRecord();
 }
 
