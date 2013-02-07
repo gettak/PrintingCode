@@ -1,7 +1,7 @@
 import processing.pdf.*;
 
-float print_width = 4.5;
-float print_height = 11;
+float print_width = 8.5; //Change this to customize art boarder width.
+float print_height = 11; //Change this to customize art boarder height.
 float make_bigger = 75;
 
 int divWidth = 6;
